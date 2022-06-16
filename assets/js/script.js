@@ -7,7 +7,6 @@ getData = (url) => {
     (async () => {
         let res = await fetch(url);
         let data = await res.json();
-        console.log(data.data);
         data.data.forEach(gif => {
             wrapper.innerHTML += `
         <div class="w-11/12 bg-gray-600 mx-auto py-14 px-10 rounded-lg shadow">
@@ -24,6 +23,6 @@ window.onload = () => {
     form.addEventListener('submit', event => {
         event.preventDefault();
         const searchInput = document.getElementById("search-input").value;
-        getData(urlGen(searchInput, 10));
+        getData(urlGen(searchInput));
     });
 }
